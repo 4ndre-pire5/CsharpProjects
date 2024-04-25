@@ -1,0 +1,14 @@
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\bin\Debug\net8.0\TestProject.exe
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\bin\Debug\net8.0\TestProject.deps.json
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\bin\Debug\net8.0\TestProject.runtimeconfig.json
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\bin\Debug\net8.0\TestProject.dll
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\bin\Debug\net8.0\TestProject.pdb
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\TestProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\TestProject.AssemblyInfoInputs.cache
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\TestProject.AssemblyInfo.cs
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\TestProject.csproj.CoreCompileInputs.cache
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\TestProject.dll
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\refint\TestProject.dll
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\TestProject.pdb
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\TestProject.genruntimeconfig.cache
+C:\IMPACTA\CsharpProjects\CsharpProjects\TestProject\obj\Debug\net8.0\ref\TestProject.dll
