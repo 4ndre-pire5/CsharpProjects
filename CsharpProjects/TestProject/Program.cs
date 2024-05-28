@@ -1,39 +1,65 @@
-﻿// string pangram = "The quick brown fox jumps over the lazy dog";
+﻿using System;
 
-// string[] phrase = pangram.Split(' ');
-
-// string[] newPhrase = new string[phrase.Length];
-
-// for (int i = 0; i < phrase.Length; i++)
-// {
-//     char[] letters = phrase[i].ToCharArray();
-//     Array.Reverse(letters);
-//     newPhrase[i] = new string(letters);
-// }
-
-// string result = String.Join(" ", newPhrase);
-// Console.WriteLine(result);
-
-string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
-
-string[] arrayId = orderStream.Split(',');
-Array.Sort(arrayId);
-
-for (int i = 0; i < arrayId.Length; i++)
+string[] pettingZoo =
 {
-    if (arrayId[i].Length != 4)
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese",
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws",
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+PlanSchoolVisit("School A");
+PlanSchoolVisit("School B", 3);
+PlanSchoolVisit("School C", 2);
+
+void PlanSchoolVisit(string schoolName, int groups = 6)
+{
+    RandomizeAnimals();
+    string[,] group = AssignGroup(groups);
+    Console.WriteLine(schoolName);
+    PrintGroup(group);
+}
+
+void RandomizeAnimals()
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++)
     {
-        Console.WriteLine($"{arrayId[i]} \t- Error");
-    }
-    else
-    {
-        Console.WriteLine(arrayId[i]);
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[i];
+        pettingZoo[i] = pettingZoo[r];
+        pettingZoo[r] = temp;
     }
 }
 
+string[,] AssignGroup(int groups = 6)
+{
+    string[,] result = new string[groups, pettingZoo.Length / groups];
 
+    int start = 0;
 
+    for (int i = 0; i < groups; i++)
+    {
+        for (int j = 0; j < result.GetLength(1); j++)
+        {
+            result[i, j] = pettingZoo[start++];
+        }
+    }
 
+    return result;
+}
 
-
+void PrintGroup(string[,] group)
+{
+    for (int i = 0; i < group.GetLength(0); i++) 
+    {
+        Console.Write($"Group {i + 1}: ");
+        for (int j = 0; j < group.GetLength(1); j++) 
+        {
+            Console.Write($"{group[i,j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
 
