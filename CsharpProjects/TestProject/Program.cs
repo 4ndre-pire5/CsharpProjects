@@ -1,65 +1,68 @@
-﻿using System;
+﻿// Prompt the user for the lower and upper bounds
+Console.Write("Enter the lower bound: ");
+int lowerBound = int.Parse(Console.ReadLine());
 
-string[] pettingZoo =
+Console.Write("Enter the upper bound: ");
+int upperBound = int.Parse(Console.ReadLine());
+
+decimal averageValue = 0;
+bool exit = false;
+
+do
 {
-    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese",
-    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws",
-    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
-};
-
-PlanSchoolVisit("School A");
-PlanSchoolVisit("School B", 3);
-PlanSchoolVisit("School C", 2);
-
-void PlanSchoolVisit(string schoolName, int groups = 6)
-{
-    RandomizeAnimals();
-    string[,] group = AssignGroup(groups);
-    Console.WriteLine(schoolName);
-    PrintGroup(group);
-}
-
-void RandomizeAnimals()
-{
-    Random random = new Random();
-
-    for (int i = 0; i < pettingZoo.Length; i++)
+    try
     {
-        int r = random.Next(i, pettingZoo.Length);
+        // Calculate the sum of the even numbers between the bounds
+        averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
 
-        string temp = pettingZoo[i];
-        pettingZoo[i] = pettingZoo[r];
-        pettingZoo[r] = temp;
+        // Display the value returned by AverageOfEvenNumbers in the console
+        Console.WriteLine($"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}.");
+
+        exit = true;
     }
-}
-
-string[,] AssignGroup(int groups = 6)
-{
-    string[,] result = new string[groups, pettingZoo.Length / groups];
-
-    int start = 0;
-
-    for (int i = 0; i < groups; i++)
+    catch (ArgumentOutOfRangeException ex)
     {
-        for (int j = 0; j < result.GetLength(1); j++)
+        Console.WriteLine("An error has occurred.");
+        Console.WriteLine(ex.Message);
+        Console.WriteLine($"The upper bound must be greater than {lowerBound}");
+        Console.Write($"Enter a new upper bound (or enter Exit to quit): ");
+        string? userResponse = Console.ReadLine();
+        if (userResponse.ToLower().Contains("exit"))
         {
-            result[i, j] = pettingZoo[start++];
+            exit = true;
+        }
+        else
+        {
+            exit = false;
+            upperBound = int.Parse(userResponse);
+        }
+    }
+}while (exit == false);
+
+// Wait for user input
+Console.ReadLine();
+
+static decimal AverageOfEvenNumbers(int lowerBound, int upperBound)
+{
+    if (lowerBound >= upperBound)
+    {
+        throw new ArgumentOutOfRangeException("upperBound", "ArgumentOutOfRangeException: upper bound must be greater than lower bound.");
+    }
+
+    int sum = 0;
+    int count = 0;
+    decimal average = 0;
+
+    for (int i = lowerBound; i <= upperBound; i++)
+    {
+        if (i % 2 == 0)
+        {
+            sum += i;
+            count++;
         }
     }
 
-    return result;
-}
+    average = (decimal)sum / count;
 
-void PrintGroup(string[,] group)
-{
-    for (int i = 0; i < group.GetLength(0); i++) 
-    {
-        Console.Write($"Group {i + 1}: ");
-        for (int j = 0; j < group.GetLength(1); j++) 
-        {
-            Console.Write($"{group[i,j]}  ");
-        }
-        Console.WriteLine();
-    }
+    return average;
 }
-
