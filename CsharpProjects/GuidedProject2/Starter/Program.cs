@@ -104,6 +104,7 @@ do
 
 static void LoadTillEachMorning(int[,] registerDailyStartingCash, int[] cashTill)
 {
+    
     cashTill[0] = registerDailyStartingCash[0, 1];
     cashTill[1] = registerDailyStartingCash[1, 1];
     cashTill[2] = registerDailyStartingCash[2, 1];
