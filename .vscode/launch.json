@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/CsharpProjects/TestProject/bin/Debug/net8.0/TestProject.dll",
+            "program": "${workspaceFolder}/CsharpProjects/GuidedProject2/Starter/bin/Debug/net8.0/Starter.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/CsharpProjects/TestProject",
+            "cwd": "${workspaceFolder}/CsharpProjects/GuidedProject2/Starter",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "integratedTerminal",
             "stopAtEntry": false
